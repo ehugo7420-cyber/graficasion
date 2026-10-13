@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>¿Qué hay de cena? · Graficación</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Literata:ital,wght@0,400;0,600;1,400&display=swap" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  
+</head>
+<body>
+  <header class="barra">
+    <div class="barra-interior">
+      <a class="marca" href="../index.html">Graficación</a>
+      <button class="boton-menu" id="boton-menu" aria-expanded="false" aria-controls="menu">Menú</button>
+      <nav class="menu" id="menu" aria-label="Principal">
+        <a href="../index.html">Inicio</a>
+        <a href="../canvas.html">El canvas</a>
+        <a href="../p5.html">p5.js</a>
+        <span class="grupo">Proyectos</span>
+        <a href="../proyectos/rana.html">Rana</a>
+        <a href="../proyectos/dientes.html">Dientes de conejo</a>
+        <a href="../proyectos/cena.html" aria-current="page">¿Qué hay de cena?</a>
+        <a href="../proyectos/nevado.html">Día nevado soleado</a>
+        <a href="../proyectos/muneco.html">Muñeco de nieve</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <h1>¿Qué hay de cena?</h1>
+    <p class="intro">Un plato servido en una mesa de madera: bistec, puré de papa, brócoli, zanahorias y cubiertos.</p>
+
+    <div class="proyecto">
+      <div>
+        <div class="lienzo-caja" id="lienzo"></div>
+      </div>
+      <div>
+        <h2>Qué muestra</h2>
+        <ul>
+        <li>Es un dibujo estático.</li>
+        <li>Mira el orden en que se dibujan las partes: primero la mesa y el plato, luego la comida y al final los cubiertos.</li>
+        </ul>
+        <h2>Qué conceptos usa</h2>
+        <ul>
+        <li><code>background()</code> para pintar la mesa</li>
+        <li>Varios <code>ellipse()</code> encimados para hacer el plato, el puré y el brócoli</li>
+        <li><code>stroke()</code>, <code>noStroke()</code> y <code>strokeWeight()</code> para controlar los bordes</li>
+        <li><code>line()</code> para los detalles del bistec y los cubiertos</li>
+        </ul>
+        <button class="boton" id="ver-codigo" data-archivo="../js/cena.js">Ver código</button>
+      </div>
+    </div>
+
+    <pre id="bloque-codigo" hidden><code></code></pre>
+
+    <div class="navegacion-proyectos">
+      <a href="dientes.html">← Dientes de conejo</a>
+      <a href="nevado.html">Día nevado soleado →</a>
+    </div>
+
+  </main>
+  <footer>
+    <!-- Cambia este texto por tu nombre, grupo y materia -->
+    Práctica de Graficación · Hecho con HTML, CSS, JavaScript y p5.js · Nombre del alumno
+  </footer>
+  <script src="../js/main.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.min.js"></script>
+  <script src="../js/cena.js"></script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inicio · Graficación</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Literata:ital,wght@0,400;0,600;1,400&display=swap" />
+  <link rel="stylesheet" href="css/styles.css" />
+  
+</head>
+<body>
+  <header class="barra">
+    <div class="barra-interior">
+      <a class="marca" href="index.html">Graficación</a>
+      <button class="boton-menu" id="boton-menu" aria-expanded="false" aria-controls="menu">Menú</button>
+      <nav class="menu" id="menu" aria-label="Principal">
+        <a href="index.html" aria-current="page">Inicio</a>
+        <a href="canvas.html">El canvas</a>
+        <a href="p5.html">p5.js</a>
+        <span class="grupo">Proyectos</span>
+        <a href="proyectos/rana.html">Rana</a>
+        <a href="proyectos/dientes.html">Dientes de conejo</a>
+        <a href="proyectos/cena.html">¿Qué hay de cena?</a>
+        <a href="proyectos/nevado.html">Día nevado soleado</a>
+        <a href="proyectos/muneco.html">Muñeco de nieve</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="hero">
+      <div>
+        <h1>Dibujar con código</h1>
+        <p class="intro">Este sitio reúne los cinco dibujos que hice en Khan Academy, ahora escritos con p5.js y
+        publicados como una página web real. El día nevado ahora tiene nieve que cae y el muñeco de nieve tiene sombrero, nariz y ojos.</p>
+        <p class="intro">Abajo están los proyectos. Si quieres entender cómo funcionan por dentro, lee antes
+        <a href="canvas.html">la página del canvas</a> y <a href="p5.html">la de p5.js</a>.</p>
+      </div>
+      <div>
+        <div class="lienzo-caja"><canvas id="plano" width="560" height="340" aria-label="Plano cartesiano que muestra las coordenadas del puntero"></canvas></div>
+        <p class="pie-lienzo">Mueve el mouse sobre el plano. El origen (0, 0) está arriba a la izquierda y la y crece hacia abajo.</p>
+      </div>
+    </section>
+
+    <h2>Proyectos</h2>
+    <ul class="lista-proyectos">
+      <li><a href="proyectos/rana.html"><span class="nombre">Rana</span><span class="desc">Una rana verde con ojos saltones, hecha solo con círculos y cuadrados.</span></a></li>
+      <li><a href="proyectos/dientes.html"><span class="nombre">Dientes de conejo</span><span class="desc">Un conejo con orejas largas, ojos y dos dientes grandes.</span></a></li>
+      <li><a href="proyectos/cena.html"><span class="nombre">¿Qué hay de cena?</span><span class="desc">Un plato servido en una mesa de madera: bistec, puré de papa, brócoli, zanahorias y cubiertos.</span></a></li>
+      <li><a href="proyectos/nevado.html"><span class="nombre">Día nevado soleado</span><span class="desc">Un muñeco de nieve bajo el sol, con nieve que cae sin parar.</span></a></li>
+      <li><a href="proyectos/muneco.html"><span class="nombre">Muñeco de nieve</span><span class="desc">Un muñeco con sombrero, bufanda, nariz de zanahoria, ojos y boca de carbón.</span></a></li>
+    </ul>
+
+    <h2>Qué contiene este sitio</h2>
+    <p>La sección teórica explica la etiqueta <code>&lt;canvas&gt;</code> con su contexto de renderizado 2D y los
+    fundamentos de p5.js, que es la librería con la que se hicieron los dibujos. Cada proyecto tiene su propia
+    página con una descripción, los conceptos que aplica y un botón para ver su código fuente.</p>
+
+  </main>
+  <footer>
+    <!-- Cambia este texto por tu nombre, grupo y materia -->
+    Práctica de Graficación · Hecho con HTML, CSS, JavaScript y p5.js · Nombre del alumno
+  </footer>
+  <script src="js/main.js"></script>
+  
+</body>
+</html>
