@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>El DOM · Graficación</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Literata:ital,wght@0,400;0,600;1,400&display=swap" />
+  <link rel="stylesheet" href="css/styles.css" />
+  
+</head>
+<body>
+  <header class="barra">
+    <div class="barra-interior">
+      <a class="marca" href="index.html">Graficación</a>
+      <button class="boton-menu" id="boton-menu" aria-expanded="false" aria-controls="menu">Menú</button>
+      <nav class="menu" id="menu" aria-label="Principal">
+        <a href="index.html">Inicio</a>
+        <a href="canvas.html">El canvas</a>
+        <a href="p5.html">p5.js</a>
+        <a href="dom.html" aria-current="page">El DOM</a>
+        <span class="grupo">Proyectos</span>
+        <a href="proyectos/rana.html">Rana</a>
+        <a href="proyectos/dientes.html">Dientes de conejo</a>
+        <a href="proyectos/cena.html">¿Qué hay de cena?</a>
+        <a href="proyectos/nevado.html">Día nevado soleado</a>
+        <a href="proyectos/muneco.html">Muñeco de nieve</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <h1>El DOM: Document Object Model</h1>
+    <p class="intro">El DOM es la forma en que el navegador representa tu página para que JavaScript pueda leerla y modificarla mientras está abierta.</p>
+
+    <h2>Qué es</h2>
+    <p>Cuando el navegador abre un archivo HTML, no lo muestra como texto: lo lee y construye con él un <strong>árbol de objetos</strong>.
+    Cada etiqueta (<code>&lt;body&gt;</code>, <code>&lt;h1&gt;</code>, <code>&lt;canvas&gt;</code>…) se convierte en un objeto al que se le llama <strong>nodo</strong>,
+    y los nodos quedan conectados como en un árbol genealógico: padres, hijos y hermanos. A ese árbol se le llama DOM
+    (<em>Document Object Model</em>, "modelo de objetos del documento").</p>
+    <p>Una forma de pensarlo: el HTML es el plano escrito de una casa, y el DOM es la casa ya construida. JavaScript no cambia el plano, cambia la casa:
+    puede pintar una pared, agregar una puerta o quitar una ventana, y el navegador actualiza lo que ves sin recargar la página.</p>
+
+    <h3>Un ejemplo de árbol</h3>
+<pre><code>&lt;body&gt;
+  &lt;h1 id="titulo"&gt;Hola&lt;/h1&gt;
+  &lt;p class="texto"&gt;Un párrafo&lt;/p&gt;
+&lt;/body&gt;</code></pre>
+    <p>Ese HTML se convierte en este árbol:</p>
+<pre><code>document
+└── html
+    ├── head
+    │   └── title
+    └── body
+        ├── h1  (id="titulo")  →  texto: "Hola"
+        └── p   (class="texto") →  texto: "Un párrafo"</code></pre>
+    <p>El objeto <code>document</code> es la puerta de entrada: desde él se llega a todo lo demás.</p>
+
+    <h2>Tipos de nodos</h2>
+    <div class="tabla-envoltura">
+      <table>
+        <thead><tr><th>Nodo</th><th>Qué representa</th></tr></thead>
+        <tbody>
+          <tr><td>Elemento</td><td>Una etiqueta HTML, como <code>&lt;p&gt;</code> o <code>&lt;canvas&gt;</code>.</td></tr>
+          <tr><td>Texto</td><td>El texto que está dentro de un elemento.</td></tr>
+          <tr><td>Atributo</td><td>Los datos de una etiqueta, como <code>id</code>, <code>class</code>, <code>src</code> o <code>width</code>.</td></tr>
+          <tr><td>Comentario</td><td>Los comentarios <code>&lt;!-- --&gt;</code> del HTML.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Seleccionar elementos</h2>
+    <p>Antes de cambiar algo hay que encontrarlo en el árbol:</p>
+    <div class="tabla-envoltura">
+      <table>
+        <thead><tr><th>Método</th><th>Qué devuelve</th></tr></thead>
+        <tbody>
+          <tr><td><code>document.getElementById('titulo')</code></td><td>El elemento con ese <code>id</code>.</td></tr>
+          <tr><td><code>document.querySelector('.texto')</code></td><td>El primer elemento que coincide con un selector de CSS.</td></tr>
+          <tr><td><code>document.querySelectorAll('p')</code></td><td>Todos los elementos que coinciden, en una lista.</td></tr>
+          <tr><td><code>document.getElementsByClassName('texto')</code></td><td>Todos los elementos con esa clase.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>En tu práctica de clase ya usaste el DOM sin darte cuenta: <code>document.getElementById("myCanvas")</code> busca en el árbol la etiqueta
+    <code>&lt;canvas&gt;</code> para poder dibujar en ella.</p>
+
+    <h2>Modificar elementos</h2>
+    <div class="tabla-envoltura">
+      <table>
+        <thead><tr><th>Propiedad o método</th><th>Para qué sirve</th></tr></thead>
+        <tbody>
+          <tr><td><code>elemento.textContent = 'Nuevo texto'</code></td><td>Cambiar el texto de un elemento. Es la opción más segura.</td></tr>
+          <tr><td><code>elemento.innerHTML = '&lt;b&gt;Hola&lt;/b&gt;'</code></td><td>Cambiar el contenido, interpretando etiquetas HTML. Se debe evitar con texto escrito por usuarios.</td></tr>
+          <tr><td><code>elemento.style.color = 'red'</code></td><td>Cambiar estilos CSS directamente.</td></tr>
+          <tr><td><code>elemento.classList.add('clase')</code>, <code>.remove()</code>, <code>.toggle()</code></td><td>Agregar, quitar o alternar clases de CSS.</td></tr>
+          <tr><td><code>elemento.setAttribute('width', 400)</code></td><td>Cambiar un atributo.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Demo: modificar un elemento</h3>
+    <div class="panel-demo">
+      <h3 id="dom-titulo">Soy un título del DOM</h3>
+      <div class="acciones">
+        <button class="boton" id="dom-btn-texto">Cambiar texto</button>
+        <button class="boton" id="dom-btn-color">Cambiar color</button>
+        <button class="boton" id="dom-btn-resaltar">Resaltar</button>
+      </div>
+    </div>
+<pre><code>titulo.textContent = 'Nuevo texto';          // texto
+titulo.style.color = 'hsl(200, 70%, 40%)';   // estilo
+titulo.classList.toggle('resaltado');        // clase de CSS</code></pre>
+
+    <h2>Crear y eliminar elementos</h2>
+    <p>El DOM no solo cambia lo que ya existe: también se pueden crear elementos nuevos desde JavaScript y agregarlos al árbol.</p>
+<pre><code>const item = document.createElement('li');   // 1. crear
+item.textContent = 'Nuevo elemento';         // 2. darle contenido
+lista.append(item);                          // 3. agregarlo al árbol
+item.remove();                               // quitarlo</code></pre>
+
+    <h3>Demo: crear y quitar elementos</h3>
+    <div class="panel-demo">
+      <label for="dom-nueva">Nuevo elemento:</label>
+      <input id="dom-nueva" type="text" placeholder="Escribe algo" />
+      <button class="boton" id="dom-btn-agregar">Agregar</button>
+      <ul id="dom-lista"></ul>
+      <p class="pie-lienzo">Haz clic en un elemento de la lista para quitarlo.</p>
+    </div>
+
+    <h2>Eventos</h2>
+    <p>Un evento es algo que ocurre en la página: un clic, mover el mouse, escribir en un campo. Con
+    <code>addEventListener</code> le dices al navegador qué función ejecutar cuando pase:</p>
+<pre><code>boton.addEventListener('click', () =&gt; {
+  titulo.textContent = '¡Hiciste clic!';
+});</code></pre>
+    <p>Los eventos más usados son <code>click</code>, <code>pointermove</code> (mover el mouse o el dedo), <code>keydown</code> (tecla presionada) e <code>input</code> (cambio en un campo de texto).</p>
+
+    <h3>Demo: reaccionar mientras escribes</h3>
+    <div class="panel-demo">
+      <label for="dom-entrada">Escribe tu nombre:</label>
+      <input id="dom-entrada" type="text" placeholder="Tu nombre" />
+      <p id="dom-eco">Hola, desconocido.</p>
+    </div>
+
+    <h2>El DOM y el canvas</h2>
+    <p>El elemento <code>&lt;canvas&gt;</code> es parte del DOM: es un nodo más del árbol, y se puede seleccionar, cambiar de tamaño o acomodar con CSS.
+    Pero <strong>lo que dibujas dentro del canvas no está en el DOM</strong>. Son solo píxeles. La rana o el muñeco de nieve no son elementos que puedas
+    seleccionar con <code>getElementById</code>; el navegador solo ve un rectángulo con una imagen adentro.</p>
+    <div class="nota"><p>Por eso un botón o un menú se hacen con elementos del DOM, y los dibujos animados con canvas. Muchas páginas combinan los dos.</p></div>
+
+    <h2>El DOM y p5.js</h2>
+    <p>p5.js trabaja con el DOM de dos formas. La primera: el lienzo que crea con <code>createCanvas()</code> es un <code>&lt;canvas&gt;</code> normal, y
+    <code>.parent('id')</code> lo coloca dentro de un elemento de la página. Así se colocan los dibujos de este sitio dentro de <code>&lt;div id="lienzo"&gt;</code>.</p>
+    <p>La segunda: p5.js puede crear controles del DOM, como botones, deslizadores y campos de texto, con <code>createButton()</code>, <code>createSlider()</code> y <code>createInput()</code>.</p>
+<pre><code>deslizador = createSlider(10, 150, 60);   // mínimo, máximo, valor inicial
+boton = createButton('Cambiar color');
+boton.mousePressed(() =&gt; { /* ... */ });
+// y en draw(): deslizador.value()</code></pre>
+
+    <h3>Demo: controles del DOM con p5.js</h3>
+    <div class="panel-demo">
+      <div id="dom-p5-controles" class="acciones"></div>
+      <div class="lienzo-caja" id="dom-p5"></div>
+    </div>
+
+    <h2>Dónde se usa el DOM en este sitio</h2>
+    <ul>
+      <li><strong>El menú del celular:</strong> el botón "Menú" agrega o quita la clase <code>abierto</code> con <code>classList.toggle()</code>.</li>
+      <li><strong>El botón "Ver código":</strong> carga el archivo del dibujo, escribe su texto con <code>textContent</code> y muestra u oculta el bloque con el atributo <code>hidden</code>.</li>
+      <li><strong>El plano de la portada:</strong> busca su canvas con <code>getElementById</code> y escucha el evento <code>pointermove</code>.</li>
+      <li><strong>Los dibujos con p5.js:</strong> usan <code>.parent('lienzo')</code> para colocar el canvas dentro de la página.</li>
+    </ul>
+
+  </main>
+  <footer>
+    <!-- Cambia este texto por tu nombre, grupo y materia -->
+    Práctica de Graficación · Hecho con HTML, CSS, JavaScript y p5.js · Nombre del alumno
+  </footer>
+  <script src="js/main.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.min.js"></script>
+  <script src="js/dom-demos.js"></script>
+  <script src="js/demo-dom-p5.js"></script>
+</body>
+</html>
