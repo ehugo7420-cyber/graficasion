@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inspector DOM · Graficación</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Literata:ital,wght@0,400;0,600;1,400&display=swap" />
+  <link rel="stylesheet" href="css/styles.css" />
+  
+</head>
+<body>
+  <header class="barra">
+    <div class="barra-interior">
+      <a class="marca" href="index.html">Graficación</a>
+      <button class="boton-menu" id="boton-menu" aria-expanded="false" aria-controls="menu">Menú</button>
+      <nav class="menu" id="menu" aria-label="Principal">
+        <a href="index.html">Inicio</a>
+        <a href="canvas.html">El canvas</a>
+        <a href="p5.html">p5.js</a>
+        <a href="dom.html">El DOM</a>
+        <a href="dom-inspector.html" aria-current="page">Inspector DOM</a>
+        <span class="grupo">Proyectos</span>
+        <a href="proyectos/rana.html">Rana</a>
+        <a href="proyectos/dientes.html">Dientes de conejo</a>
+        <a href="proyectos/cena.html">¿Qué hay de cena?</a>
+        <a href="proyectos/nevado.html">Día nevado soleado</a>
+        <a href="proyectos/muneco.html">Muñeco de nieve</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <h1>Inspector del DOM</h1>
+    <p class="intro">Cada página de este sitio es un árbol: <code>&lt;html&gt;</code> es la raíz, de ella salen <code>&lt;head&gt;</code> y
+    <code>&lt;body&gt;</code>, y dentro del cuerpo hay contenedores como <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code> y
+    <code>&lt;footer&gt;</code> con sus hijos (<code>&lt;h1&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;canvas&gt;</code>…).
+    Aquí puedes ver ese árbol dibujado, página por página. Si quieres la teoría, está en <a href="dom.html">El DOM</a>.</p>
+
+    <section>
+      <h2>Elige una página</h2>
+      <div class="paginas" id="selector-paginas" role="group" aria-label="Páginas del sitio"></div>
+      <noscript><p>Esta página necesita JavaScript para dibujar el árbol.</p></noscript>
+    </section>
+
+    <section>
+      <h2>Árbol del DOM</h2>
+      <p class="estado-inspector" id="inspector-estado" aria-live="polite"></p>
+      <div class="herramientas">
+        <button class="boton" type="button" id="btn-expandir">Expandir todo</button>
+        <button class="boton" type="button" id="btn-inicial">Vista inicial</button>
+        <button class="boton" type="button" id="btn-contraer">Contraer todo</button>
+      </div>
+      <div class="inspector-panel">
+        <div class="arbol-scroll" id="arbol-scroll">
+          <div class="arbol" id="arbol"></div>
+        </div>
+      </div>
+      <div class="detalle" id="detalle" aria-live="polite"></div>
+    </section>
+
+    <section>
+      <h2>Cómo leer el árbol</h2>
+      <ul class="leyenda">
+        <li><span class="muestra"></span> Etiqueta escrita en el HTML</li>
+        <li><span class="muestra discontinua"></span> Elemento que crea JavaScript al ejecutarse (el <code>&lt;canvas&gt;</code> de p5.js)</li>
+        <li><span class="muestra activa"></span> Etiqueta seleccionada</li>
+      </ul>
+      <ul>
+        <li>Haz clic en una caja para <strong>abrir o cerrar</strong> sus hijos. El número junto a la flecha ▸ indica cuántos hijos tiene.</li>
+        <li>El texto gris debajo de la etiqueta es su <code>id</code> (<code>#</code>) o su primera clase (<code>.</code>).</li>
+        <li><code>&lt;link&gt; ×4</code> significa que hay 4 etiquetas iguales seguidas, que se agrupan para que el árbol no se vuelva enorme.</li>
+        <li>Abajo del árbol aparecen los datos de la caja seleccionada: su ruta, sus atributos y su texto.</li>
+        <li>Las páginas de los dibujos muestran el contenedor <code>#lienzo</code> con un <code>&lt;canvas&gt;</code> discontinuo: p5.js lo agrega al ejecutar el programa.</li>
+      </ul>
+    </section>
+
+  </main>
+  <footer>
+    <!-- Aquí va el nombre del alumno -->
+    Práctica de Graficación · Hecho con HTML, CSS, JavaScript y p5.js · Espinosa Perez Jose Hugo
+  </footer>
+  <script src="js/main.js"></script>
+  <script src="js/paginas-data.js"></script>
+  <script src="js/dom-inspector.js"></script>
+</body>
+</html>

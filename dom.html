@@ -20,6 +20,7 @@
         <a href="canvas.html">El canvas</a>
         <a href="p5.html">p5.js</a>
         <a href="dom.html" aria-current="page">El DOM</a>
+        <a href="dom-inspector.html">Inspector DOM</a>
         <span class="grupo">Proyectos</span>
         <a href="proyectos/rana.html">Rana</a>
         <a href="proyectos/dientes.html">Dientes de conejo</a>
@@ -33,6 +34,7 @@
     <h1>El DOM: Document Object Model</h1>
     <p class="intro">El DOM es la forma en que el navegador representa tu página para que JavaScript pueda leerla y modificarla mientras está abierta.</p>
 
+    <section>
     <h2>Qué es</h2>
     <p>Cuando el navegador abre un archivo HTML, no lo muestra como texto: lo lee y construye con él un <strong>árbol de objetos</strong>.
     Cada etiqueta (<code>&lt;body&gt;</code>, <code>&lt;h1&gt;</code>, <code>&lt;canvas&gt;</code>…) se convierte en un objeto al que se le llama <strong>nodo</strong>,
@@ -55,7 +57,9 @@
         ├── h1  (id="titulo")  →  texto: "Hola"
         └── p   (class="texto") →  texto: "Un párrafo"</code></pre>
     <p>El objeto <code>document</code> es la puerta de entrada: desde él se llega a todo lo demás.</p>
+    </section>
 
+    <section>
     <h2>Tipos de nodos</h2>
     <div class="tabla-envoltura">
       <table>
@@ -68,7 +72,9 @@
         </tbody>
       </table>
     </div>
+    </section>
 
+    <section>
     <h2>Seleccionar elementos</h2>
     <p>Antes de cambiar algo hay que encontrarlo en el árbol:</p>
     <div class="tabla-envoltura">
@@ -84,7 +90,9 @@
     </div>
     <p>En tu práctica de clase ya usaste el DOM sin darte cuenta: <code>document.getElementById("myCanvas")</code> busca en el árbol la etiqueta
     <code>&lt;canvas&gt;</code> para poder dibujar en ella.</p>
+    </section>
 
+    <section>
     <h2>Modificar elementos</h2>
     <div class="tabla-envoltura">
       <table>
@@ -111,7 +119,9 @@
 <pre><code>titulo.textContent = 'Nuevo texto';          // texto
 titulo.style.color = 'hsl(200, 70%, 40%)';   // estilo
 titulo.classList.toggle('resaltado');        // clase de CSS</code></pre>
+    </section>
 
+    <section>
     <h2>Crear y eliminar elementos</h2>
     <p>El DOM no solo cambia lo que ya existe: también se pueden crear elementos nuevos desde JavaScript y agregarlos al árbol.</p>
 <pre><code>const item = document.createElement('li');   // 1. crear
@@ -127,7 +137,9 @@ item.remove();                               // quitarlo</code></pre>
       <ul id="dom-lista"></ul>
       <p class="pie-lienzo">Haz clic en un elemento de la lista para quitarlo.</p>
     </div>
+    </section>
 
+    <section>
     <h2>Eventos</h2>
     <p>Un evento es algo que ocurre en la página: un clic, mover el mouse, escribir en un campo. Con
     <code>addEventListener</code> le dices al navegador qué función ejecutar cuando pase:</p>
@@ -142,13 +154,17 @@ item.remove();                               // quitarlo</code></pre>
       <input id="dom-entrada" type="text" placeholder="Tu nombre" />
       <p id="dom-eco">Hola, desconocido.</p>
     </div>
+    </section>
 
+    <section>
     <h2>El DOM y el canvas</h2>
     <p>El elemento <code>&lt;canvas&gt;</code> es parte del DOM: es un nodo más del árbol, y se puede seleccionar, cambiar de tamaño o acomodar con CSS.
     Pero <strong>lo que dibujas dentro del canvas no está en el DOM</strong>. Son solo píxeles. La rana o el muñeco de nieve no son elementos que puedas
     seleccionar con <code>getElementById</code>; el navegador solo ve un rectángulo con una imagen adentro.</p>
     <div class="nota"><p>Por eso un botón o un menú se hacen con elementos del DOM, y los dibujos animados con canvas. Muchas páginas combinan los dos.</p></div>
+    </section>
 
+    <section>
     <h2>El DOM y p5.js</h2>
     <p>p5.js trabaja con el DOM de dos formas. La primera: el lienzo que crea con <code>createCanvas()</code> es un <code>&lt;canvas&gt;</code> normal, y
     <code>.parent('id')</code> lo coloca dentro de un elemento de la página. Así se colocan los dibujos de este sitio dentro de <code>&lt;div id="lienzo"&gt;</code>.</p>
@@ -163,7 +179,9 @@ boton.mousePressed(() =&gt; { /* ... */ });
       <div id="dom-p5-controles" class="acciones"></div>
       <div class="lienzo-caja" id="dom-p5"></div>
     </div>
+    </section>
 
+    <section>
     <h2>Dónde se usa el DOM en este sitio</h2>
     <ul>
       <li><strong>El menú del celular:</strong> el botón "Menú" agrega o quita la clase <code>abierto</code> con <code>classList.toggle()</code>.</li>
@@ -171,11 +189,14 @@ boton.mousePressed(() =&gt; { /* ... */ });
       <li><strong>El plano de la portada:</strong> busca su canvas con <code>getElementById</code> y escucha el evento <code>pointermove</code>.</li>
       <li><strong>Los dibujos con p5.js:</strong> usan <code>.parent('lienzo')</code> para colocar el canvas dentro de la página.</li>
     </ul>
+    <p>Para ver el árbol del DOM de cada página de este sitio, dibujado con cajas y líneas, abre el <a href="dom-inspector.html">Inspector del DOM</a>.</p>
+    </section>
+
 
   </main>
   <footer>
-    <!-- Cambia este texto por tu nombre, grupo y materia -->
-    Práctica de Graficación · Hecho con HTML, CSS, JavaScript y p5.js · Nombre del alumno
+    <!-- Aquí va el nombre del alumno -->
+    Práctica de Graficación · Hecho con HTML, CSS, JavaScript y p5.js · Espinosa Perez Jose Hugo
   </footer>
   <script src="js/main.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.min.js"></script>

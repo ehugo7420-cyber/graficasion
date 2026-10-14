@@ -19,6 +19,8 @@
         <a href="index.html">Inicio</a>
         <a href="canvas.html">El canvas</a>
         <a href="p5.html" aria-current="page">p5.js</a>
+        <a href="dom.html">El DOM</a>
+        <a href="dom-inspector.html">Inspector DOM</a>
         <span class="grupo">Proyectos</span>
         <a href="proyectos/rana.html">Rana</a>
         <a href="proyectos/dientes.html">Dientes de conejo</a>
@@ -33,17 +35,22 @@
     <p class="intro">p5.js es una librería de JavaScript para dibujar y animar con pocas líneas de código. Es la que se usó para hacer
     los cinco dibujos de este sitio.</p>
 
+    <section>
     <h2>Qué es</h2>
     <p>p5.js es una librería de código abierto pensada para la programación creativa. Está inspirada en Processing, un lenguaje
     creado para enseñar programación a artistas y diseñadores, y lleva esa misma idea a la web. Por debajo usa el
     <a href="canvas.html">canvas</a> con contexto 2D (y el contexto WebGL cuando se pide el modo <code>WEBGL</code>), pero oculta
     los detalles para que dibujar sea directo.</p>
+    </section>
 
+    <section>
     <h2>Cómo se agrega a una página</h2>
 <pre><code>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.min.js"&gt;&lt;/script&gt;
 &lt;script src="js/sketch.js"&gt;&lt;/script&gt;</code></pre>
     <p>El primer script carga la librería y el segundo es tu dibujo. El orden importa: p5.js debe cargarse antes que tu código.</p>
+    </section>
 
+    <section>
     <h2>La estructura: setup() y draw()</h2>
     <p>Todo programa de p5.js gira alrededor de dos funciones que la librería llama sola:</p>
     <ul>
@@ -63,7 +70,9 @@ function draw() {
     <h3>Demo en vivo</h3>
     <div class="demo"><div class="lienzo-caja" id="demo-p5"></div></div>
     <p class="pie-lienzo">Mueve el mouse sobre el lienzo. El tamaño del círculo depende de qué tan rápido lo muevas.</p>
+    </section>
 
+    <section>
     <h2>Funciones de dibujo</h2>
     <div class="tabla-envoltura">
       <table>
@@ -79,12 +88,16 @@ function draw() {
     </div>
     <p>p5.js dibuja como si pintaras con capas: lo que se dibuja después queda encima. Por eso en el muñeco de nieve el sombrero
     se dibuja al final. Además, <code>fill()</code> y <code>stroke()</code> se quedan activos hasta que los cambies.</p>
+    </section>
 
+    <section>
     <h2>Color</h2>
     <p>Por defecto los colores son RGB (rojo, verde, azul, de 0 a 255). <code>fill(255, 0, 0)</code> es rojo y <code>fill(128)</code> es gris.
     Con <code>colorMode(HSB)</code> se pueden describir por matiz, saturación y brillo, ideal para hacer cambios de color suaves, como en la demo.
     <code>lerpColor()</code> calcula un color intermedio entre dos; sirve, por ejemplo, para hacer degradados de cielo.</p>
+    </section>
 
+    <section>
     <h2>Variables del sistema</h2>
     <p>p5.js crea variables que siempre están actualizadas:</p>
     <ul>
@@ -94,12 +107,16 @@ function draw() {
       <li><code>frameCount</code>: cuántos cuadros se han dibujado. Sirve para animar con <code>sin(frameCount * 0.05)</code>.</li>
       <li><code>key</code>: la última tecla presionada.</li>
     </ul>
+    </section>
 
+    <section>
     <h2>Eventos</h2>
     <p>Además de <code>setup()</code> y <code>draw()</code>, p5.js busca funciones con nombres especiales y las ejecuta cuando ocurre algo:
     <code>mousePressed()</code>, <code>mouseReleased()</code>, <code>mouseMoved()</code>, <code>keyPressed()</code>.
     Los dibujos de este sitio no las necesitan, pero son la base de cualquier programa interactivo.</p>
+    </section>
 
+    <section>
     <h2>Transformaciones</h2>
     <p><code>translate(x, y)</code> mueve el origen, <code>rotate(ángulo)</code> gira el sistema de coordenadas y <code>scale()</code> lo agranda.
     Como afectan todo lo que se dibuja después, se encierran entre <code>push()</code> y <code>pop()</code>, que guardan y restauran el estado.
@@ -110,7 +127,9 @@ rotate(angulo);        // girar
 ellipse(0, -75, 62, 175);
 pop();                 // volver a como estaba</code></pre>
     <p>Los ángulos se miden en radianes. Con <code>angleMode(DEGREES)</code> puedes usar grados.</p>
+    </section>
 
+    <section>
     <h2>Modo global y modo instancia</h2>
     <p>En <strong>modo global</strong>, el que usamos, las funciones como <code>ellipse()</code> están disponibles directamente.
     En <strong>modo instancia</strong> todo se guarda dentro de un objeto, lo que evita choques de nombres si hay varios dibujos en la misma página:</p>
@@ -119,7 +138,9 @@ pop();                 // volver a como estaba</code></pre>
   p.draw  = () =&gt; { p.background(220); p.ellipse(p.mouseX, p.mouseY, 50); };
 };
 new p5(miDibujo, 'contenedor');</code></pre>
+    </section>
 
+    <section>
     <h2>De Khan Academy a p5.js</h2>
     <p>Khan Academy usa ProcessingJS, que es muy parecido a p5.js. Para llevar un dibujo al sitio hay que hacer algunos cambios:</p>
     <div class="tabla-envoltura">
@@ -136,11 +157,13 @@ new p5(miDibujo, 'contenedor');</code></pre>
       </table>
     </div>
     <p><code>fill()</code>, <code>rect()</code>, <code>ellipse()</code>, <code>random()</code>, <code>map()</code> y <code>mouseX</code> se escriben igual en ambos.</p>
+    </section>
+
 
   </main>
   <footer>
-    <!-- Cambia este texto por tu nombre, grupo y materia -->
-    Práctica de Graficación · Hecho con HTML, CSS, JavaScript y p5.js · Nombre del alumno
+    <!-- Aquí va el nombre del alumno -->
+    Práctica de Graficación · Hecho con HTML, CSS, JavaScript y p5.js · Espinosa Perez Jose Hugo
   </footer>
   <script src="js/main.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.min.js"></script>

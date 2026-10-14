@@ -19,6 +19,8 @@
         <a href="index.html" aria-current="page">Inicio</a>
         <a href="canvas.html">El canvas</a>
         <a href="p5.html">p5.js</a>
+        <a href="dom.html">El DOM</a>
+        <a href="dom-inspector.html">Inspector DOM</a>
         <span class="grupo">Proyectos</span>
         <a href="proyectos/rana.html">Rana</a>
         <a href="proyectos/dientes.html">Dientes de conejo</a>
@@ -35,7 +37,7 @@
         <p class="intro">Este sitio reúne los cinco dibujos que hice en Khan Academy, ahora escritos con p5.js y
         publicados como una página web real. El día nevado ahora tiene nieve que cae y el muñeco de nieve tiene sombrero, nariz y ojos.</p>
         <p class="intro">Abajo están los proyectos. Si quieres entender cómo funcionan por dentro, lee antes
-        <a href="canvas.html">la página del canvas</a> y <a href="p5.html">la de p5.js</a>.</p>
+        <a href="canvas.html">la página del canvas</a>, <a href="p5.html">la de p5.js</a> y <a href="dom.html">la del DOM</a>. Para ver cómo está armada cada página por dentro, usa el <a href="dom-inspector.html">inspector del DOM</a>.</p>
       </div>
       <div>
         <div class="lienzo-caja"><canvas id="plano" width="560" height="340" aria-label="Plano cartesiano que muestra las coordenadas del puntero"></canvas></div>
@@ -43,23 +45,28 @@
       </div>
     </section>
 
+    <section>
     <h2>Proyectos</h2>
     <ul class="lista-proyectos">
       <li><a href="proyectos/rana.html"><span class="nombre">Rana</span><span class="desc">Una rana verde con ojos saltones, hecha solo con círculos y cuadrados.</span></a></li>
-      <li><a href="proyectos/dientes.html"><span class="nombre">Dientes de conejo</span><span class="desc">Un conejo con orejas largas, ojos y dos dientes grandes.</span></a></li>
+      <li><a href="proyectos/dientes.html"><span class="nombre">Dientes de conejo</span><span class="desc">Un conejo con orejas rosas, mejillas, bigotes y dos dientes grandes.</span></a></li>
       <li><a href="proyectos/cena.html"><span class="nombre">¿Qué hay de cena?</span><span class="desc">Un plato servido en una mesa de madera: bistec, puré de papa, brócoli, zanahorias y cubiertos.</span></a></li>
       <li><a href="proyectos/nevado.html"><span class="nombre">Día nevado soleado</span><span class="desc">Un muñeco de nieve bajo el sol, con nieve que cae sin parar.</span></a></li>
       <li><a href="proyectos/muneco.html"><span class="nombre">Muñeco de nieve</span><span class="desc">Un muñeco con sombrero, bufanda, nariz de zanahoria, ojos y boca de carbón.</span></a></li>
     </ul>
+    </section>
 
+    <section>
     <h2>Qué contiene este sitio</h2>
-    <p>La sección teórica explica la etiqueta <code>&lt;canvas&gt;</code> con su contexto de renderizado 2D y los
-    fundamentos de p5.js, que es la librería con la que se hicieron los dibujos. Cada proyecto tiene su propia
+    <p>La sección teórica explica la etiqueta <code>&lt;canvas&gt;</code> con su contexto de renderizado 2D, los
+    fundamentos de p5.js, que es la librería con la que se hicieron los dibujos, y el DOM, que es como JavaScript modifica la página. Cada proyecto tiene su propia
     página con una descripción, los conceptos que aplica y un botón para ver su código fuente.</p>
+    </section>
+
 
   </main>
   <footer>
-    <!-- Cambia este texto por tu nombre, grupo y materia -->
+    <!-- Aquí va el nombre del alumno -->
     Práctica de Graficación · Hecho con HTML, CSS, JavaScript y p5.js · Espinosa Perez Jose Hugo
   </footer>
   <script src="js/main.js"></script>

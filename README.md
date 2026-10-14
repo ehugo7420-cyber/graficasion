@@ -6,7 +6,8 @@ y dos páginas teóricas: la etiqueta `<canvas>` y los fundamentos de p5.js.
 
 ## Estructura
 
-- `index.html`, `canvas.html`, `p5.html`: portada y teoría
+- `index.html`, `canvas.html`, `p5.html`, `dom.html`: portada y teoría
+- `dom-inspector.html`: árbol visual del DOM de cada página del sitio
 - `proyectos/`: una página por dibujo
 - `js/`: el código de cada dibujo, más `main.js` (menú y visor de código)
 - `css/styles.css`: estilos
