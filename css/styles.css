@@ -1,4 +1,3 @@
-
 :root {
   --papel: #f3f7fa;
   --linea: #dbe6ee;
@@ -251,3 +250,27 @@ footer {
 }
 
 @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+
+/* ---------- Página del DOM ---------- */
+.panel-demo {
+  background: var(--blanco);
+  border: 2px solid var(--tinta);
+  border-radius: var(--radio);
+  padding: 1rem 1.2rem;
+  margin: 1rem 0 1.4rem;
+  max-width: 560px;
+}
+.panel-demo h3 { margin-top: 0; }
+.panel-demo label { font-family: var(--fuente-titulo); font-weight: 600; margin-right: .5rem; }
+.panel-demo input[type="text"] {
+  font: inherit;
+  padding: .4rem .6rem;
+  border: 2px solid var(--tinta);
+  border-radius: 8px;
+  max-width: 100%;
+}
+.panel-demo ul { margin: .8rem 0 0; padding-left: 1.2rem; }
+.panel-demo li { cursor: pointer; }
+.panel-demo li:hover { text-decoration: line-through; }
+.acciones { display: flex; flex-wrap: wrap; gap: .6rem; align-items: center; margin-bottom: .8rem; }
+.resaltado { background: var(--sol); padding: .1em .4em; border-radius: 6px; }
