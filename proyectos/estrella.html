@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Estrella fugaz · Graficación</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Literata:ital,wght@0,400;0,600;1,400&display=swap" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  
+</head>
+<body>
+  <header class="barra">
+    <div class="barra-interior">
+      <a class="marca" href="../index.html">Graficación</a>
+      <button class="boton-menu" id="boton-menu" aria-expanded="false" aria-controls="menu">Menú</button>
+      <nav class="menu" id="menu" aria-label="Principal">
+        <a href="../index.html">Inicio</a>
+        <a href="../canvas.html">El canvas</a>
+        <a href="../p5.html">p5.js</a>
+        <a href="../dom.html">El DOM</a>
+        <a href="../dom-inspector.html">Inspector DOM</a>
+        <span class="grupo">Proyectos</span>
+        <a href="../proyectos/rana.html">Rana</a>
+        <a href="../proyectos/dientes.html">Dientes de conejo</a>
+        <a href="../proyectos/cena.html">¿Qué hay de cena?</a>
+        <a href="../proyectos/nevado.html">Día nevado soleado</a>
+        <a href="../proyectos/muneco.html">Muñeco de nieve</a>
+        <a href="../proyectos/sol.html">El sol que explota</a>
+        <a href="../proyectos/nubes.html">Nubes que se separan</a>
+        <a href="../proyectos/estrella.html" aria-current="page">Estrella fugaz</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <h1>Estrella fugaz</h1>
+    <p class="intro">Una estrella fugaz cruza un cielo de noche lleno de estrellas pequeñas.</p>
+
+    <div class="proyecto">
+      <div>
+        <div class="lienzo-caja" id="lienzo"></div>
+        <div class="controles">
+          <button class="boton" type="button" id="reiniciar">Reiniciar</button>
+          <label class="casilla"><input type="checkbox" id="repetir" checked /> Repetir automáticamente</label>
+        </div>
+      </div>
+      <div>
+        <h2>Qué muestra</h2>
+        <ul>
+        <li>La animación empieza sola: la estrella cruza el cielo hacia la derecha y hacia abajo.</li>
+        <li>El botón <strong>Reiniciar</strong> la repite, y la casilla <strong>Repetir automáticamente</strong> la repite sola cuando la estrella sale de la pantalla.</li>
+        </ul>
+        <h2>Qué conceptos usa</h2>
+        <ul>
+        <li>Variables (<code>starX</code> y <code>starY</code>) que aumentan en cada cuadro para mover la estrella</li>
+        <li><code>line()</code> con <code>stroke()</code> y <code>strokeWeight()</code> para dibujar la cola</li>
+        <li><code>ellipse()</code> pequeños para las estrellas del fondo</li>
+        <li>Elementos del DOM (un botón y una casilla) que controlan la animación</li>
+        </ul>
+        <button class="boton" id="ver-codigo" data-archivo="../js/estrella.js">Ver código</button>
+      </div>
+    </div>
+
+    <pre id="bloque-codigo" hidden><code></code></pre>
+
+    <div class="navegacion-proyectos">
+      <a href="nubes.html">← Nubes que se separan</a>
+      <span></span>
+    </div>
+
+  </main>
+  <footer>
+    <!-- Aquí va el nombre del alumno -->
+    Práctica de Graficación · Hecho con HTML, CSS, JavaScript y p5.js · Espinosa Perez Jose Hugo
+  </footer>
+  <script src="../js/main.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.min.js"></script>
+  <script src="../js/estrella.js"></script>
+</body>
+</html>
